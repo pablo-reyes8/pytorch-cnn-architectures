@@ -1,0 +1,16 @@
+device: cuda   # o cpu, se ajusta automáticamente en el script
+
+model:
+  name: LeNet5
+  num_classes: 10
+  initialization: Tanh + Xavier
+
+criterion:
+  name: CrossEntropyLoss
+
+optimizer:
+  name: SGD
+  lr: 0.01
+
+training:
+  epochs: 4
