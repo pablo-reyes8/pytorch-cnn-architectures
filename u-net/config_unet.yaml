@@ -1,0 +1,18 @@
+device: cuda   # o cpu, se ajusta automáticamente en el script
+
+model:
+  name: UNet
+  in_channels: 3
+  num_classes: 1
+
+criterion:
+  name: BCEWithLogitsLoss
+
+optimizer:
+  name: Adam
+  lr: 0.001
+
+training:
+  epochs: 10
+  mixed_precision: true
+  task: segmentation
