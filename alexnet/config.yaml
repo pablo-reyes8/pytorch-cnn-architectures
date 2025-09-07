@@ -1,0 +1,23 @@
+device: cuda   # o cpu, se ajusta automáticamente en el script
+
+model:
+  name: AlexNet
+  num_classes: 10
+
+criterion:
+  name: CrossEntropyLoss
+
+optimizer:
+  name: SGD
+  lr: 0.001
+  momentum: 0.9
+  weight_decay: 0.0005
+
+scheduler:
+  name: ReduceLROnPlateau
+  mode: max
+  factor: 0.1
+  patience: 5
+
+training:
+  epochs: 120
