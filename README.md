@@ -22,10 +22,10 @@ Each model is built manually without relying on `torchvision.models`, providing 
 
 ## 🔮 Planned Implementations
 
-- **Inception (GoogLeNet, 2014)** – Multi-branch convolutional architecture with factorized filters and auxiliary classifiers, reducing computational cost while improving accuracy.
-- **VGG Net**
-- **Mobile Net**
-- **Dense Net**
+- **Inception (GoogLeNet, 2014)** – Multi-branch convolutional architecture with factorized filters and auxiliary classifiers, reducing computational cost while improving accuracy.  
+- **VGGNet (2014)** – Characterized by its simplicity: stacks of 3×3 convolutions and max-pooling layers. Known for its depth (up to 19 layers) and strong performance on ImageNet, though computationally heavy.  
+- **MobileNet (2017)** – Lightweight CNN designed for mobile and embedded devices. Uses depthwise separable convolutions to drastically reduce parameter count and computation while maintaining accuracy.  
+- **DenseNet (2017)** – Densely connected convolutional network where each layer receives inputs from all previous layers. Promotes feature reuse, improves gradient flow, and achieves high efficiency with fewer parameters.  
 
 ---
 
