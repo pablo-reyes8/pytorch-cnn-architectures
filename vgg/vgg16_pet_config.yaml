@@ -1,0 +1,36 @@
+data:
+  data_dir: ./data
+  batch_size: 32
+  val_split: 0.2
+  num_workers: 2
+  seed: 42
+  mode: binary
+  img_size: 224
+  robust: false
+  stats_cache_path: ./data/pet_stats.json
+  use_cached_if_available: true
+  mean:
+  - 0.48293063044548035
+  - 0.44492557644844055
+  - 0.3957090973854065
+  std:
+  - 0.2592383325099945
+  - 0.25327032804489136
+  - 0.2598187029361725
+training:
+  device: cuda
+  multi_class: false
+  num_classes: 2
+  model:
+    architecture: VGG16
+    use_bn: true
+  criterion: CrossEntropyLoss
+  optimizer:
+    type: SGD
+    lr: 0.01
+    momentum: 0.9
+    weight_decay: 0.0001
+  scheduler:
+    type: StepLR
+    step_size: 20
+    gamma: 0.1
