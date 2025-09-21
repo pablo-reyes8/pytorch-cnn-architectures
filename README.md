@@ -14,7 +14,8 @@ Each model is built manually without relying on `torchvision.models`, providing 
 ## 📌 Implemented Architectures
 
 - **LeNet-5 (1998)** – One of the earliest CNNs, designed for handwritten digit recognition (MNIST). Introduced convolution + pooling + fully connected layers, laying the foundation of deep learning for vision.  
-- **AlexNet (2012)** – The breakthrough model that won ILSVRC 2012. Popularized deep CNNs, GPU training, ReLU activations, and dropout, marking the start of the modern deep learning era.  
+- **AlexNet (2012)** – The breakthrough model that won ILSVRC 2012. Popularized deep CNNs, GPU training, ReLU activations, and dropout, marking the start of the modern deep learning era.
+- **VGGNet (2014)** – Characterized by its simplicity: stacks of 3×3 convolutions and max-pooling layers. Known for its depth (up to 19 layers) and strong performance on ImageNet, though computationally heavy.  
 - **U-Net (2015)** – A U-shaped encoder–decoder architecture for semantic segmentation. Introduced skip connections to preserve spatial information and became the standard in medical imaging and beyond.  
 - **ResNet-50 (2015)** – Residual networks that solved the vanishing gradient problem, enabling training of ultra-deep architectures. ResNet-50 remains one of the most widely used backbones in computer vision.  
 
