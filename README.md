@@ -72,8 +72,13 @@ timeline
     2012 : **AlexNet**  
         - Winner of ILSVRC 2012  
         - Popularized GPUs, ReLU, and Dropout  
-        - Marked the start of modern Deep Learning  
-    
+        - Marked the start of modern Deep Learning
+
+    2014 : **VGG**  
+        - Very deep CNN (16–19 layers) with simple 3×3 conv filters  
+        - Demonstrated depth as a key factor for accuracy  
+        - Became a widely used feature extractor in transfer learning
+
     2015 : **ResNet**  
         - Introduced *residual connections*  
         - Enabled training of 100+ layer networks  
