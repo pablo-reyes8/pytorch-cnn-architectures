@@ -78,6 +78,12 @@ timeline
         - Demonstrated depth as a key factor for accuracy  
         - Became a widely used feature extractor in transfer learning
 
+    2014 : **GoogLeNet (Inception v1)**  
+        - Multi-branch blocks: 1×1, 3×3, 5×5 convs + pooling in parallel  
+        - 1×1 convolutions for dimensionality reduction (bottlenecks)  
+        - Auxiliary classifiers to improve gradient flow and regularization  
+        - Winner of ILSVRC 2014 with far fewer parameters than VGG
+
     2015 : **ResNet**  
         - Introduced *residual connections*  
         - Enabled training of 100+ layer networks  
