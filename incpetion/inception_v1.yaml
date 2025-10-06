@@ -1,0 +1,119 @@
+model:
+  name: GoogLeNet (Inception v1)
+  dataset: STL-10
+  input_size:
+  - 3
+  - 96
+  - 96
+  num_classes: 10
+  parameters: ~10.5M
+  stem:
+  - conv1:
+      in_channels: 3
+      out_channels: 64
+      kernel_size: 7
+      stride: 2
+      padding: 3
+      activation: ReLU
+      normalization: BatchNorm
+  - pool1:
+      type: MaxPool
+      kernel_size: 3
+      stride: 2
+      padding: 1
+  - conv2:
+      in_channels: 64
+      out_channels: 64
+      kernel_size: 1
+      stride: 1
+      activation: ReLU
+      normalization: BatchNorm
+  - conv3:
+      in_channels: 64
+      out_channels: 192
+      kernel_size: 3
+      stride: 1
+      padding: 1
+      activation: ReLU
+      normalization: BatchNorm
+  - pool2:
+      type: MaxPool
+      kernel_size: 3
+      stride: 2
+      padding: 1
+  inception_blocks:
+  - in3a:
+      output_channels: 256
+  - in3b:
+      output_channels: 480
+  - pool3:
+      type: MaxPool
+      size:
+      - 6
+      - 6
+  - in4a:
+      output_channels: 512
+  - in4b:
+      output_channels: 512
+  - in4c:
+      output_channels: 512
+  - in4d:
+      output_channels: 528
+  - in4e:
+      output_channels: 832
+  - pool4:
+      type: MaxPool
+      size:
+      - 3
+      - 3
+  - in5a:
+      output_channels: 832
+  - in5b:
+      output_channels: 1024
+  auxiliary_heads:
+    aux1:
+      position: after_in4a
+      structure:
+      - AvgPool:
+          kernel_size: 5
+          stride: 3
+      - Conv1x1:
+          out_channels: 128
+      - FC1:
+          units: 1024
+          activation: ReLU
+      - Dropout: 0.7
+      - FC2:
+          units: num_classes
+    aux2:
+      position: after_in4d
+      structure:
+      - AvgPool:
+          kernel_size: 5
+          stride: 3
+      - Conv1x1:
+          out_channels: 128
+      - FC1:
+          units: 1024
+          activation: ReLU
+      - Dropout: 0.7
+      - FC2:
+          units: num_classes
+  main_head:
+  - GlobalAvgPool:
+    - 1
+    - 1
+  - Dropout: 0.4
+  - FC:
+      units: num_classes
+training:
+  optimizer: SGD
+  learning_rate: 0.01
+  momentum: 0.9
+  weight_decay: 0.0005
+  scheduler: StepLR
+  loss: Inception-style loss (main + 0.3*aux1 + 0.3*aux2)
+  epochs: 20
+  metrics:
+  - accuracy
+  - f1_macro
