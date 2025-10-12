@@ -95,6 +95,12 @@ timeline
         - Encoder–decoder with *skip connections*  
         - Pixel-wise segmentation with high precision  
         - Revolutionary in biomedical and satellite imaging  
+
+    2019 : **EfficientNet**  
+        - Introduced *compound scaling* of depth, width, and resolution  
+        - Achieved state-of-the-art accuracy with far fewer parameters  
+        - Optimized model scaling using a principled approach (α, β, γ)  
+        - Set new efficiency benchmarks across multiple vision tasks  
 ```
 
 
