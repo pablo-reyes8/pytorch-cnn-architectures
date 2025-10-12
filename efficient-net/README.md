@@ -9,6 +9,7 @@ EfficientNet introduced the idea of **compound scaling** — instead of scaling 
 $$
 d = \alpha^\phi, \quad w = \beta^\phi, \quad r = \gamma^\phi
 $$
+
 subject to a constraint $\alpha \cdot \beta^2 \cdot \gamma^2 \approx 2$.
 
 This simple principle allows EfficientNet-B0 to be expanded consistently up to B7, achieving **state-of-the-art accuracy/efficiency trade-offs** across multiple datasets.
@@ -90,6 +91,7 @@ Each residual block receives an individual survival probability:
 $$
 p_i = 1 - \text{drop\_connect\_rate} \times \frac{i}{N}
 $$
+
 ensuring early blocks survive almost always while deeper ones are randomly skipped.
 
 ## 🎯 Educational Purpose
