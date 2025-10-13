@@ -1,0 +1,1519 @@
+EfficientNet(
+  (stem): ConvBNAct(
+    (conv): Conv2d(3, 64, kernel_size=(3, 3), stride=(2, 2), bias=False)
+    (bn): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+    (act): SiLU(inplace=True)
+  )
+  (blocks): Sequential(
+    (0): MBConv(
+      (expand): Identity()
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(64, 16, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(16, 64, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+    )
+    (1): MBConv(
+      (expand): Identity()
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(32, 8, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(8, 32, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (2): MBConv(
+      (expand): Identity()
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(32, 8, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(8, 32, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (3): MBConv(
+      (expand): Identity()
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(32, 8, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(8, 32, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (4): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(32, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(192, 192, kernel_size=(3, 3), stride=(2, 2), groups=192, bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(192, 8, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(8, 192, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(192, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+    )
+    (5): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(48, 288, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(288, 288, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=288, bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(288, 16, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(16, 288, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(288, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (6): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(48, 288, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(288, 288, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=288, bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(288, 16, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(16, 288, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(288, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (7): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(48, 288, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(288, 288, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=288, bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(288, 16, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(16, 288, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(288, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (8): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(48, 288, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(288, 288, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=288, bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(288, 16, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(16, 288, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(288, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (9): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(48, 288, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(288, 288, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=288, bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(288, 16, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(16, 288, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(288, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (10): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(48, 288, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(288, 288, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=288, bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(288, 16, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(16, 288, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(288, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (11): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(48, 288, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(288, 288, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=288, bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(288, 16, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(16, 288, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(288, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (12): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(48, 288, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(288, 288, kernel_size=(5, 5), stride=(2, 2), groups=288, bias=False)
+        (bn): BatchNorm2d(288, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(288, 16, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(16, 288, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(288, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(80, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+    )
+    (13): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(80, 480, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(480, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(480, 480, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=480, bias=False)
+        (bn): BatchNorm2d(480, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(480, 24, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(24, 480, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(480, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(80, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (14): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(80, 480, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(480, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(480, 480, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=480, bias=False)
+        (bn): BatchNorm2d(480, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(480, 24, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(24, 480, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(480, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(80, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (15): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(80, 480, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(480, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(480, 480, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=480, bias=False)
+        (bn): BatchNorm2d(480, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(480, 24, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(24, 480, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(480, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(80, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (16): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(80, 480, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(480, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(480, 480, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=480, bias=False)
+        (bn): BatchNorm2d(480, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(480, 24, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(24, 480, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(480, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(80, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (17): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(80, 480, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(480, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(480, 480, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=480, bias=False)
+        (bn): BatchNorm2d(480, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(480, 24, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(24, 480, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(480, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(80, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (18): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(80, 480, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(480, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(480, 480, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=480, bias=False)
+        (bn): BatchNorm2d(480, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(480, 24, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(24, 480, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(480, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(80, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (19): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(80, 480, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(480, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(480, 480, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=480, bias=False)
+        (bn): BatchNorm2d(480, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(480, 24, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(24, 480, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(480, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(80, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (20): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(80, 480, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(480, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(480, 480, kernel_size=(3, 3), stride=(2, 2), groups=480, bias=False)
+        (bn): BatchNorm2d(480, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(480, 24, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(24, 480, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(480, 152, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(152, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+    )
+    (21): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(152, 912, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(912, 912, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=912, bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(912, 40, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(40, 912, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(912, 152, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(152, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (22): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(152, 912, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(912, 912, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=912, bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(912, 40, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(40, 912, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(912, 152, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(152, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (23): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(152, 912, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(912, 912, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=912, bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(912, 40, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(40, 912, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(912, 152, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(152, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (24): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(152, 912, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(912, 912, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=912, bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(912, 40, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(40, 912, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(912, 152, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(152, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (25): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(152, 912, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(912, 912, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=912, bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(912, 40, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(40, 912, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(912, 152, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(152, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (26): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(152, 912, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(912, 912, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=912, bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(912, 40, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(40, 912, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(912, 152, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(152, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (27): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(152, 912, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(912, 912, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=912, bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(912, 40, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(40, 912, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(912, 152, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(152, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (28): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(152, 912, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(912, 912, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=912, bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(912, 40, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(40, 912, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(912, 152, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(152, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (29): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(152, 912, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(912, 912, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=912, bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(912, 40, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(40, 912, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(912, 152, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(152, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (30): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(152, 912, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(912, 912, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=912, bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(912, 40, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(40, 912, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(912, 152, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(152, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (31): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(152, 912, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(912, 912, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=912, bias=False)
+        (bn): BatchNorm2d(912, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(912, 40, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(40, 912, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(912, 216, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(216, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+    )
+    (32): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(216, 1296, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(1296, 1296, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=1296, bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(1296, 56, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(56, 1296, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(1296, 216, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(216, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (33): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(216, 1296, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(1296, 1296, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=1296, bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(1296, 56, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(56, 1296, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(1296, 216, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(216, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (34): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(216, 1296, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(1296, 1296, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=1296, bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(1296, 56, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(56, 1296, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(1296, 216, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(216, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (35): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(216, 1296, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(1296, 1296, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=1296, bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(1296, 56, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(56, 1296, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(1296, 216, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(216, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (36): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(216, 1296, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(1296, 1296, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=1296, bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(1296, 56, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(56, 1296, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(1296, 216, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(216, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (37): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(216, 1296, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(1296, 1296, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=1296, bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(1296, 56, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(56, 1296, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(1296, 216, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(216, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (38): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(216, 1296, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(1296, 1296, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=1296, bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(1296, 56, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(56, 1296, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(1296, 216, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(216, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (39): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(216, 1296, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(1296, 1296, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=1296, bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(1296, 56, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(56, 1296, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(1296, 216, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(216, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (40): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(216, 1296, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(1296, 1296, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=1296, bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(1296, 56, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(56, 1296, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(1296, 216, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(216, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (41): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(216, 1296, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(1296, 1296, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=1296, bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(1296, 56, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(56, 1296, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(1296, 216, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(216, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (42): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(216, 1296, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(1296, 1296, kernel_size=(5, 5), stride=(2, 2), groups=1296, bias=False)
+        (bn): BatchNorm2d(1296, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(1296, 56, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(56, 1296, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(1296, 376, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(376, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+    )
+    (43): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(376, 2256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(2256, 2256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=2256, bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(2256, 96, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(96, 2256, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(2256, 376, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(376, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (44): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(376, 2256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(2256, 2256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=2256, bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(2256, 96, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(96, 2256, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(2256, 376, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(376, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (45): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(376, 2256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(2256, 2256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=2256, bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(2256, 96, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(96, 2256, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(2256, 376, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(376, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (46): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(376, 2256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(2256, 2256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=2256, bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(2256, 96, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(96, 2256, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(2256, 376, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(376, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (47): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(376, 2256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(2256, 2256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=2256, bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(2256, 96, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(96, 2256, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(2256, 376, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(376, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (48): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(376, 2256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(2256, 2256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=2256, bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(2256, 96, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(96, 2256, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(2256, 376, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(376, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (49): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(376, 2256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(2256, 2256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=2256, bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(2256, 96, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(96, 2256, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(2256, 376, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(376, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (50): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(376, 2256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(2256, 2256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=2256, bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(2256, 96, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(96, 2256, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(2256, 376, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(376, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (51): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(376, 2256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(2256, 2256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=2256, bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(2256, 96, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(96, 2256, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(2256, 376, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(376, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (52): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(376, 2256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(2256, 2256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=2256, bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(2256, 96, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(96, 2256, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(2256, 376, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(376, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (53): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(376, 2256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(2256, 2256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=2256, bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(2256, 96, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(96, 2256, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(2256, 376, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(376, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (54): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(376, 2256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(2256, 2256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=2256, bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(2256, 96, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(96, 2256, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(2256, 376, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(376, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (55): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(376, 2256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(2256, 2256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=2256, bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(2256, 96, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(96, 2256, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(2256, 376, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(376, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (56): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(376, 2256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(2256, 2256, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=2256, bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(2256, 96, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(96, 2256, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(2256, 376, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(376, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (57): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(376, 2256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(2256, 2256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2256, bias=False)
+        (bn): BatchNorm2d(2256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(2256, 96, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(96, 2256, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(2256, 624, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(624, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+    )
+    (58): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(624, 3744, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(3744, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(3744, 3744, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=3744, bias=False)
+        (bn): BatchNorm2d(3744, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(3744, 160, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(160, 3744, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(3744, 624, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(624, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (59): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(624, 3744, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(3744, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(3744, 3744, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=3744, bias=False)
+        (bn): BatchNorm2d(3744, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(3744, 160, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(160, 3744, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(3744, 624, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(624, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+    (60): MBConv(
+      (expand): ConvBNAct(
+        (conv): Conv2d(624, 3744, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(3744, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (depthwise): ConvBNAct(
+        (conv): Conv2d(3744, 3744, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=3744, bias=False)
+        (bn): BatchNorm2d(3744, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (se): SqueezeExcitation(
+        (pool): AdaptiveAvgPool2d(output_size=1)
+        (reduce): Conv2d(3744, 160, kernel_size=(1, 1), stride=(1, 1))
+        (act): SiLU(inplace=True)
+        (expand): Conv2d(160, 3744, kernel_size=(1, 1), stride=(1, 1))
+        (gate): Sigmoid()
+      )
+      (project): ConvBNAct(
+        (conv): Conv2d(3744, 624, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(624, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (act): Identity()
+      )
+      (sd): StochasticDepth()
+    )
+  )
+  (head): ConvBNAct(
+    (conv): Conv2d(624, 2496, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(2496, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+    (act): SiLU(inplace=True)
+  )
+  (pool): AdaptiveAvgPool2d(output_size=1)
+  (drop): Dropout(p=0.2, inplace=True)
+  (fc): Linear(in_features=2496, out_features=30, bias=True)
+)
