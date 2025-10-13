@@ -20,7 +20,7 @@ Each model is implemented manually — without `torchvision.models` — to offer
 - **AlexNet (2012)** — Revolutionized computer vision by introducing ReLU activations, dropout, and GPU-based training, achieving a breakthrough at ILSVRC 2012.  
 - **VGGNet (2014)** — Deep yet simple, built on stacks of 3×3 convolutions and max-pooling, setting the benchmark for clean, uniform CNN design.  
 - **Inception v1 (GoogLeNet, 2014)** — Multi-branch convolutions (1×1, 3×3, 5×5, pooling) run in parallel for efficient multi-scale feature extraction, with auxiliary classifiers to stabilize training.  
-- **ResNet-50 (2015)** — Introduced residual connections that solved the vanishing gradient problem, enabling ultra-deep models. Still a dominant backbone in vision tasks.  
+- **ResNet-50/101 (2015)** — Introduced residual connections that solved the vanishing gradient problem, enabling ultra-deep models. Still a dominant backbone in vision tasks.  
 - **U-Net (2015)** — Encoder–decoder design for segmentation, with skip connections to preserve spatial context; cornerstone of biomedical and dense prediction tasks.  
 - **EfficientNet v1 (2019)** — Compound scaling of depth, width, and resolution, achieving state-of-the-art accuracy–efficiency trade-offs from B0–B7 variants.  
 
