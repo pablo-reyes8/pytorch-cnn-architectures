@@ -88,11 +88,28 @@ Scripts for launching experiments.
 
 ### Stochastic Depth
 Each residual block receives an individual survival probability:
+
 $$
-p_i = 1 - \text{drop\_connect\_rate} \times \frac{i}{N}
+p_i = 1 - \text{drop-connect-rate} \times \frac{i}{N}
 $$
 
 ensuring early blocks survive almost always while deeper ones are randomly skipped.
+
+
+## 📊 Experiments
+
+- **ROC Curve and AUC**  
+  <p align="center">
+  <img src="experiments/roc_ovr.png" width="50%">
+  </p>
+
+
+- **GradCam in Different Layer**
+  <p align="center">
+  <img src="experiments/grad_cam/example 3.png" width="90%">
+  </p>
+
+
 
 ## 🎯 Educational Purpose
 
@@ -114,6 +131,7 @@ Each module is **unit-tested** in `tests/`, ensuring reliability and easier expe
 
 ---
 
+  
 ## ✍️ Author
 
 Developed by **Pablo Reyes**  
