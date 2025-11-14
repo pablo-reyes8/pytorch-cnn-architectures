@@ -1,0 +1,73 @@
+models:
+  - name: mobilenet_v1_tiny_cars
+    description: Compact MobileNetV1 variant trained on the first 100 Stanford Cars classes.
+    version: v1
+    num_classes: 100
+    width_mult: 1.0
+    drop_out_rate: 0.2
+    net1_layers:
+      - [32, 1]
+      - [64, 2]
+      - [64, 1]
+      - [128, 2]
+      - [128, 1]
+      - [256, 2]
+      - [256, 1]
+    optimizer:
+      type: Adam
+      lr: 0.001
+      weight_decay: 0.0001
+    diff_augment:
+      p_flip: 0.5
+      p_brightness: 0.5
+      max_brightness_delta: 0.2
+      p_contrast: 0.5
+      max_contrast_scale: 0.2
+      p_cutout: 0.5
+      cutout_frac: 0.25
+    training:
+      num_epochs: 50
+      patience: 5
+      early_stop_delta: 0.001
+      acc_targets: [0.88, 0.94]
+      dataset:
+        source: pkuHaowei/stanford-cars
+        num_classes_limit: 100
+        img_size: 128
+        batch_size: 64
+        num_workers: 2
+
+  - name: mobilenet_v2_compact_cars
+    description: MobileNetV2 bottleneck stack tuned for 20 Stanford Cars classes.
+    version: v2
+    num_classes: 20
+    width_mult: 0.8
+    drop_out_rate: 0.3
+    net2_layers:
+      - [1, 16, 1, 1]
+      - [6, 24, 2, 2]
+      - [6, 32, 2, 2]
+      - [6, 64, 2, 2]
+    optimizer:
+      type: Adam
+      lr: 0.001
+      weight_decay: 0.0
+    diff_augment:
+      p_flip: 0.5
+      p_brightness: 0.5
+      max_brightness_delta: 0.2
+      p_contrast: 0.5
+      max_contrast_scale: 0.2
+      p_cutout: 0.5
+      cutout_frac: 0.25
+    training:
+      num_epochs: 50
+      patience: 5
+      early_stop_delta: 0.001
+      acc_targets: [0.88, 0.94]
+      dataset:
+        source: pkuHaowei/stanford-cars
+        num_classes_limit: 20
+        img_size: 128
+        batch_size: 64
+        num_workers: 2
