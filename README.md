@@ -9,17 +9,20 @@
 
 # 🧠 Famous CNNs — From Scratch in PyTorch
 
-This repository contains **from-scratch implementations** of the most influential Convolutional Neural Network (CNN) architectures, fully written in **PyTorch**. Every layer, block, and training primitive is handcrafted — no `torchvision.models` shortcuts — so you can audit, customize, and extend each network just like the original papers intended.
+This repository contains **from-scratch implementations** of some of the most influential Convolutional Neural Network (CNN) architectures, fully written in **PyTorch**. Every layer, block, and training primitive is handcrafted — no `torchvision.models` shortcuts — so you can audit, customize, and extend each network just like the original papers intended. :contentReference[oaicite:0]{index=0}
+
+Beyond being “just implementations”, this project is designed as a **code-first literature review** of classic CNN design: from LeNet and AlexNet to ResNet, U-Net, MobileNet, and EfficientNet. Each architecture lives in its own mini-project with tests, training scripts, and notes that tie the code back to the original paper.
 
 ## 📑 Table of Contents
 
 1. [Architectures at a Glance](#-architectures-at-a-glance)
-2. [Features & Tooling](#-features--tooling)
-3. [Repository Tour](#-repository-tour)
-4. [Visualization Suite](#-visualization-suite)
-5. [Historical Timeline](#-historical-timeline)
-6. [References](#-references)
-7. [License](#-license)
+2. [Research Focus](#research-focus)
+3. [Features & Tooling](#features-tooling)
+4. [Repository Tour](#-repository-tour)
+5. [Visualization Suite](#-visualization-suite)
+6. [Historical Timeline](#-historical-timeline)
+7. [References](#-references)
+8. [License](#-license)
 
 ---
 
@@ -40,7 +43,39 @@ This repository contains **from-scratch implementations** of the most influentia
 
 ---
 
-## ⚙️ Features & Tooling
+
+## 🎓 Research Focus 
+
+The goal of this repository is to play a similar role to a *survey article*, but in executable form:
+
+- **Bridge papers and code.**  
+  For each architecture (LeNet, AlexNet, VGG, Inception, ResNet, U-Net, MobileNet, EfficientNet), the implementation mirrors the math, layer ordering, and design choices described in the original work, while staying readable and hackable in modern PyTorch. 
+
+- **Organize the CNN literature into “code modules”.**  
+  Each subfolder (`lenet/`, `alexnet/`, `vgg/`, `incpetion/`, `resnet/`, `u-net/`, `mobilenet/`, `efficient-net/`) is a self-contained lab:
+  - model definition (layers → blocks → full network),
+  - training loop and configs for standard datasets (e.g. MNIST, CIFAR, STL, Food-101),
+  - evaluation utilities (metrics, basic plots, or visualizations specific to that architecture),
+  - local tests to ensure shapes, residual paths, and forward passes behave as expected. 
+
+- **Highlight design patterns across generations.**  
+  The repo is structured so you can *compare and contrast* how CNNs evolved:
+  - early conv–pool–FC pipelines (LeNet) vs. deep stacks of small kernels (VGG),
+  - multi-branch modules (Inception) vs. residual connections (ResNet),
+  - encoder–decoder with skips for dense prediction (U-Net),
+  - efficiency-oriented designs (depthwise separable convs in MobileNet; compound scaling in EfficientNet). 
+
+- **Act as a base for systematic experiments.**  
+  Even before large cross-model benchmarks are added, the repository is already structured to support:
+  - accuracy–vs–compute comparisons (params, FLOPs, latency),
+  - visualization-driven analysis (feature maps, Grad-CAM, embeddings),
+  - small, reproducible experiments per architecture (e.g. “train ResNet vs. VGG under the same CIFAR-10 setup”). 
+
+In other words, this project aims to be a **living survey of classic CNN architectures**: instead of only reading about LeNet, AlexNet, VGG, Inception, ResNet, U-Net, MobileNet, and EfficientNet, you can *run*, inspect, and extend them from a single, coherent codebase.
+
+---
+
+## ⚙️ Features & Tooling 
 
 - **Faithful re-implementations**: each model mirrors the math, layer ordering, and hyper-parameters described in the original papers.
 - **Modular building blocks**: convolutional stems, bottlenecks, attention modules, and classifier heads live in isolated files for easy reuse.
