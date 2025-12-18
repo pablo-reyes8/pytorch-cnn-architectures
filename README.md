@@ -162,7 +162,6 @@ timeline
 - He, Zhang, Ren & Sun. *Deep Residual Learning for Image Recognition.* CVPR 2016.
 - Ronneberger, Fischer & Brox. *U-Net: Convolutional Networks for Biomedical Image Segmentation.* MICCAI 2015.
 - Howard et al. *MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications.* arXiv 2017.
-- Huang, Liu, Van Der Maaten & Weinberger. *Densely Connected Convolutional Networks.* CVPR 2017.
 - Tan & Le. *EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks.* ICML 2019.
 
 ---
