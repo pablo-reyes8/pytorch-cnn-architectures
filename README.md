@@ -7,11 +7,11 @@
 ![Forks](https://img.shields.io/github/forks/pablo-reyes8/famous-cnns-from-scratch?style=social)
 ![Stars](https://img.shields.io/github/stars/pablo-reyes8/famous-cnns-from-scratch?style=social)
 
-# 🧠 Famous CNNs — From Scratch in PyTorch
+# PyTorch CNN Architectures
 
-This repository contains **from-scratch implementations** of some of the most influential Convolutional Neural Network (CNN) architectures, fully written in **PyTorch**. Every layer, block, and training primitive is handcrafted — no `torchvision.models` shortcuts — so you can audit, customize, and extend each network just like the original papers intended. :contentReference[oaicite:0]{index=0}
+A collection of **from-scratch PyTorch implementations** of influential CNN architectures. Each model is implemented without `torchvision.models` abstractions to keep the code **transparent**, **auditable**, and easy to modify for research and education.
 
-Beyond being “just implementations”, this project is designed as a **code-first literature review** of classic CNN design: from LeNet and AlexNet to ResNet, U-Net, MobileNet, and EfficientNet. Each architecture lives in its own mini-project with tests, training scripts, and notes that tie the code back to the original paper.
+The repository is designed as a **code-first literature review** of CNN architecture evolution (LeNet → AlexNet/VGG/Inception → ResNet → U-Net/MobileNet/EfficientNet). Each architecture is organized as a self-contained module with training scripts, lightweight tests, and short notes that map implementation details to the original paper.
 
 ## 📑 Table of Contents
 
