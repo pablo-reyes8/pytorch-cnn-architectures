@@ -7,8 +7,6 @@
 ![Last commit](https://img.shields.io/github/last-commit/pablo-reyes8/famous-cnns-from-scratch)
 ![Open issues](https://img.shields.io/github/issues/pablo-reyes8/famous-cnns-from-scratch)
 ![Contributors](https://img.shields.io/github/contributors/pablo-reyes8/famous-cnns-from-scratch)
-![Forks](https://img.shields.io/github/forks/pablo-reyes8/famous-cnns-from-scratch?style=social)
-![Stars](https://img.shields.io/github/stars/pablo-reyes8/famous-cnns-from-scratch?style=social)
 [![CI](https://github.com/pablo-reyes8/famous-cnns-from-scratch/actions/workflows/ci.yml/badge.svg)](https://github.com/pablo-reyes8/famous-cnns-from-scratch/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/pablo-reyes8/famous-cnns-from-scratch/actions/workflows/codeql.yml/badge.svg)](https://github.com/pablo-reyes8/famous-cnns-from-scratch/actions/workflows/codeql.yml)
 
