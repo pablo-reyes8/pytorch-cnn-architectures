@@ -8,7 +8,6 @@
 ![Open issues](https://img.shields.io/github/issues/pablo-reyes8/famous-cnns-from-scratch)
 ![Contributors](https://img.shields.io/github/contributors/pablo-reyes8/famous-cnns-from-scratch)
 [![CI](https://github.com/pablo-reyes8/famous-cnns-from-scratch/actions/workflows/ci.yml/badge.svg)](https://github.com/pablo-reyes8/famous-cnns-from-scratch/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/pablo-reyes8/famous-cnns-from-scratch/actions/workflows/codeql.yml/badge.svg)](https://github.com/pablo-reyes8/famous-cnns-from-scratch/actions/workflows/codeql.yml)
 
 
 
